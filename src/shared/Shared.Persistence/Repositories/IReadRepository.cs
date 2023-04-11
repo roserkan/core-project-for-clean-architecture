@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 namespace Shared.Persistence.Repositories;
 
 public interface IReadRepository<TEntity, TEntityId> : IQuery<TEntity>
-    where TEntity : BaseEntity<TEntityId>
+    where TEntity : class, IAggregateRoot, new()
 {
     Task<TEntity?> GetAsync(
         Expression<Func<TEntity, bool>> predicate,

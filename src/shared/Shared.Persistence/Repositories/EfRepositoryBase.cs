@@ -8,7 +8,7 @@ using Shared.Persistence.Dynamic;
 namespace Shared.Persistence.Repositories;
 
 public class EfRepositoryBase<TEntity, TEntityId, TContext> : IReadRepository<TEntity, TEntityId>, IWriteRepository<TEntity, TEntityId>
-    where TEntity : BaseEntity<TEntityId>
+    where TEntity : class, IAggregateRoot, new()
     where TContext : DbContext
 {
     protected readonly TContext Context;

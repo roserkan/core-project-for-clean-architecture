@@ -3,7 +3,7 @@
 namespace Shared.Persistence.Repositories;
 
 public interface IWriteRepository<TEntity, TEntityId> : IQuery<TEntity>
-    where TEntity : BaseEntity<TEntityId>
+    where TEntity : class, IAggregateRoot, new()
 {
     Task<TEntity> AddAsync(TEntity entity);
 
