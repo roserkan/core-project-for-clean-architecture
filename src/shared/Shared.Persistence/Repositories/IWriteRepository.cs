@@ -2,19 +2,19 @@
 
 namespace Shared.Persistence.Repositories;
 
-public interface IWriteRepository<TEntity, TEntityId> : IQuery<TEntity>
+public interface IWriteRepository<TEntity> : IQuery<TEntity>
     where TEntity : class, IAggregateRoot, new()
 {
-    Task<TEntity> AddAsync(TEntity entity);
+    Task AddAsync(TEntity entity);
 
-    Task<IList<TEntity>> AddRangeAsync(IList<TEntity> entity);
+    Task AddRangeAsync(IList<TEntity> entity);
 
-    Task<TEntity> UpdateAsync(TEntity entity);
+    Task UpdateAsync(TEntity entity);
 
-    Task<IList<TEntity>> UpdateRangeAsync(IList<TEntity> entity);
+    Task UpdateRangeAsync(IList<TEntity> entity);
 
-    Task<TEntity> DeleteAsync(TEntity entity);
+    Task DeleteAsync(TEntity entity);
 
-    Task<IList<TEntity>> DeleteRangeAsync(IList<TEntity> entity);
+    Task DeleteRangeAsync(IList<TEntity> entity);
 }
 

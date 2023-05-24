@@ -6,11 +6,19 @@ using System.Linq.Expressions;
 
 namespace Shared.Persistence.Repositories;
 
-public interface IReadRepository<TEntity, TEntityId> : IQuery<TEntity>
+public interface IReadRepository<TEntity> : IQuery<TEntity>
     where TEntity : class, IAggregateRoot, new()
 {
     Task<TEntity?> GetAsync(
         Expression<Func<TEntity, bool>> predicate,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
+        bool enableTracking = true,
+        CancellationToken cancellationToken = default
+    );
+
+    Task<IList<TEntity>> GetAllAsync(
+        Expression<Func<TEntity, bool>>? predicate = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         bool enableTracking = true,
         CancellationToken cancellationToken = default
