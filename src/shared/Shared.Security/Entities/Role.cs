@@ -2,7 +2,7 @@
 
 namespace Shared.Security.Entities;
 
-public class Role : BaseAuditableEntity<Guid>
+public class Role : BaseEntity
 {
     public string Name { get; set; }
 

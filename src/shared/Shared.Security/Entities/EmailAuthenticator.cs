@@ -2,7 +2,7 @@
 
 namespace Shared.Security.Entities;
 
-public class EmailAuthenticator : BaseAuditableEntity<Guid>
+public class EmailAuthenticator : BaseEntity
 {
     public Guid UserId { get; set; }
     public string? ActivationKey { get; set; }

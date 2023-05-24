@@ -3,7 +3,7 @@ using Shared.Security.Enums;
 
 namespace Shared.Security.Entities;
 
-public class User : BaseAuditableEntity<Guid>
+public class User : BaseEntity
 {
     public string Email { get; set; }
     public byte[] PasswordSalt { get; set; }

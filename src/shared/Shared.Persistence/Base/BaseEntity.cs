@@ -2,9 +2,16 @@
 
 namespace Shared.Persistence.Base;
 
-public abstract class BaseEntity<TId>
+public abstract class BaseEntity
 {
-    public TId Id { get; set; }
+    public Guid Id { get; set; }
+    public DateTime Created { get; set; }
+
+    public string? CreatedBy { get; set; }
+
+    public DateTime? LastModified { get; set; }
+
+    public string? LastModifiedBy { get; set; }
 
     private readonly List<BaseEvent> _domainEvents = new();
 
@@ -12,7 +19,7 @@ public abstract class BaseEntity<TId>
     public IReadOnlyCollection<BaseEvent> DomainEvents => _domainEvents.AsReadOnly();
 
 
-    public BaseEntity(TId id)
+    public BaseEntity(Guid id)
     {
         Id = id;
     }

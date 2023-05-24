@@ -2,7 +2,7 @@
 
 namespace Shared.Security.Entities;
 
-public class OtpAuthenticator : BaseAuditableEntity<Guid>
+public class OtpAuthenticator : BaseEntity
 {
     public Guid UserId { get; set; }
     public byte[] SecretKey { get; set; }

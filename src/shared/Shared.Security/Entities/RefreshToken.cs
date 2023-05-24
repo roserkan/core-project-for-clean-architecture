@@ -2,7 +2,7 @@
 
 namespace Shared.Security.Entities;
 
-public class RefreshToken : BaseAuditableEntity<Guid>
+public class RefreshToken : BaseEntity
 {
     public Guid UserId { get; set; }
     public string Token { get; set; }
